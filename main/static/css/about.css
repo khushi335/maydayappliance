@@ -1,0 +1,227 @@
+/* General About Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #293039;
+    line-height: 1.7;
+}
+
+/* Header Breadcrumb */
+.bg-breadcrumb {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/breadcrumb-bg.jpg') center/cover no-repeat;
+    color: #fff;
+}
+
+.bg-breadcrumb .breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.bg-breadcrumb .breadcrumb-item.active {
+    color: #997A80;
+}
+
+/* Why Choose Us Section */
+h4.text-primary {
+    color: #997A80;
+    font-weight: 600;
+}
+
+h2.display-5 {
+    font-weight: 700;
+}
+
+ul.list-unstyled li {
+    margin-bottom: 0.75rem;
+}
+
+/* Stats Counter */
+.counter-box h1 {
+    font-weight: 700;
+    color: #997A80;
+    transition: all 0.5s ease;
+}
+
+.counter-box p {
+    font-weight: 500;
+}
+
+/* Services Section */
+.service-card {
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.service-card h5 {
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+}
+
+/* Vision & Mission Boxes */
+.vision-box, .mission-box {
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vision-box:hover, .mission-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Team Section */
+.team-card {
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.team-card h5 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* FAQ Accordion */
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    background: #fff;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.accordion-item label {
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    padding-right: 25px;
+}
+
+.accordion-item label::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item input:checked + label::after {
+    content: '-';
+    transform: rotate(180deg);
+}
+
+.accordion-item p {
+    margin-top: 0.75rem;
+    display: none;
+}
+
+.accordion-item input:checked ~ p {
+    display: block;
+}
+
+/* CTA Contact Form */
+section.bg-primary.text-white {
+    background: #997A80;
+    color: #fff;
+}
+
+section.bg-primary.text-white h2 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+section.bg-primary.text-white p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+section.bg-primary.text-white form {
+    background: #fff;
+    color: #293039;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+section.bg-primary.text-white form input,
+section.bg-primary.text-white form textarea {
+    border: 1px solid #ccc;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+section.bg-primary.text-white form input:focus,
+section.bg-primary.text-white form textarea:focus {
+    border-color: #731211;
+    box-shadow: 0 0 10px rgba(115,18,17,0.2);
+    outline: none;
+}
+
+section.bg-primary.text-white form button {
+    background-color: #731211;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+section.bg-primary.text-white form button:hover {
+    background-color: #293039;
+}
+
+/* Animations */
+section, .service-card, .team-card, .vision-box, .mission-box, .counter-box {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+section:nth-of-type(1) { animation-delay: 0.1s; }
+section:nth-of-type(2) { animation-delay: 0.2s; }
+section:nth-of-type(3) { animation-delay: 0.3s; }
+section:nth-of-type(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .counter-box h1 {
+        font-size: 2rem;
+    }
+    .counter-box p {
+        font-size: 1rem;
+    }
+}

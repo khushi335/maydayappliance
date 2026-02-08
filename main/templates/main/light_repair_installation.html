@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+/* Wrapper */
+.service-wrapper {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f0f4f8;
+    color: #222;
+    padding: 0;
+}
+
+/* Hero Section */
+.service-hero {
+    position: relative;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(11,44,77,0.8), rgba(26,73,118,0.8)), url("{% static 'img/light.jpg' %}") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Hero Text */
+.service-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.service-title {
+    font-size: 54px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px 6px rgba(0,0,0,0.3);
+}
+
+.service-subtitle {
+    font-size: 22px;
+    line-height: 1.6;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.25);
+}
+
+/* Floating shapes */
+.circle-accent {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    z-index: 1;
+    animation: float 12s ease-in-out infinite;
+}
+
+.circle-accent.one { width: 150px; height: 150px; top: 50px; left: -60px; }
+.circle-accent.two { width: 200px; height: 200px; bottom: -80px; right: -100px; }
+.circle-accent.three { width: 100px; height: 100px; top: 200px; right: 50px; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+}
+
+/* Content Card */
+.service-container {
+    max-width: 1100px;
+    margin: -120px auto 60px;
+    background: #fff;
+    padding: 60px;
+    border-radius: 25px;
+    box-shadow: 0 35px 90px rgba(0,0,0,0.08);
+    border-top: 6px solid #0b2c4d;
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.service-content p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.service-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* Checklist */
+.service-list {
+    margin-top: 30px;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.service-list li {
+    background: #f0f4f8;
+    padding: 15px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0b2c4d;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease;
+    cursor: default;
+}
+
+.service-list li::before {
+    content: '✓';
+    margin-right: 12px;
+    color: #d62828;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+}
+
+.service-list li:hover {
+    background: #0b2c4d;
+    color: #fff;
+}
+
+.service-list li:hover::before {
+    color: #ffd700;
+}
+
+/* Responsive */
+@media(max-width: 992px) {
+    .service-container {
+        grid-template-columns: 1fr;
+        margin: -100px 20px 40px;
+        padding: 40px 25px;
+    }
+    .service-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 576px) {
+    .service-title { font-size: 38px; }
+    .service-subtitle { font-size: 18px; }
+}
+
+</style>
+
+
+<div class="service-wrapper">
+
+    <!-- Hero Section -->
+    <div class="service-hero">
+        <span class="circle-accent one"></span>
+        <span class="circle-accent two"></span>
+        <span class="circle-accent three"></span>
+        <div class="service-hero-content">
+            <div class="service-title">Light Repair & Installation</div>
+            <div class="service-subtitle">Professional repair and installation of lighting systems for homes and commercial spaces.</div>
+        </div>
+    </div>
+
+    <!-- Content Card -->
+    <div class="service-container">
+        <div class="service-content">
+            <p>
+                Our Light Repair & Installation service ensures your lighting systems are safe, functional, and energy-efficient. We provide professional service for both residential and commercial properties.
+            </p>
+
+            <p>
+                Our licensed electricians handle all types of light repairs, replacements, and installations, ensuring optimal performance and compliance with Australian electrical standards.
+            </p>
+
+            <ul class="service-list">
+                <li>Repair of faulty lights and fixtures</li>
+                <li>Installation of new lighting systems</li>
+                <li>Residential & commercial services</li>
+                <li>Energy-efficient lighting solutions</li>
+                <li>Electrical safety compliance checks</li>
+                <li>Emergency lighting repair support</li>
+            </ul>
+
+            <p>
+                We ensure each installation or repair is safe, compliant, and enhances the functionality and aesthetics of your space.
+            </p>
+        </div>
+
+        <img src="{% static 'img/indoor.jpg' %}" alt="Light Repair & Installation" class="service-image">
+    </div>
+
+</div>
+
+{% endblock %}

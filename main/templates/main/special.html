@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .special-wrapper {
+        font-family: 'Poppins', Arial, sans-serif;
+        background: #f5f7fa;
+        padding: 60px 20px;
+        color: #222;
+    }
+
+    .special-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        color: #0b2c4d;
+        margin-bottom: 10px;
+    }
+
+    .special-subtitle {
+        text-align: center;
+        color: #555;
+        margin-bottom: 30px;
+        font-size: 16px;
+    }
+
+    .call-wrap {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .call-now-btn {
+        display: inline-block;
+        background: #d62828;
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    .call-now-btn:hover {
+        background: #a61d1d;
+        color: #fff;
+    }
+
+    .fan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .fan-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: 0.3s ease;
+        border-top: 6px solid #0b2c4d;
+    }
+
+    .fan-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .fan-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .fan-price {
+        font-size: 28px;
+        font-weight: 800;
+        color: #d62828;
+        margin-bottom: 10px;
+    }
+
+    .fan-heading {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #0b2c4d;
+    }
+
+    .fan-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    .fan-table td {
+        padding: 10px 6px;
+        border-bottom: 1px solid #e5e5e5;
+        vertical-align: top;
+    }
+
+    .label {
+        font-weight: 600;
+        color: #0b2c4d;
+        width: 45%;
+    }
+
+    .value {
+        color: #444;
+        width: 55%;
+    }
+
+    .special-note {
+        text-align: center;
+        margin-top: 40px;
+        color: #666;
+        font-size: 14px;
+    }
+
+    @media(max-width: 600px) {
+        .special-title {
+            font-size: 28px;
+        }
+    }
+</style>
+
+<div class="special-wrapper">
+    <div class="special-title">Ceiling Fan Specials</div>
+    <div class="special-subtitle">Professional Supply & Installation for Residential & Commercial Properties</div>
+
+    <!-- CALL NOW BUTTON -->
+    <div class="call-wrap">
+        <a href="tel:0497656471" class="call-now-btn">📞 Call Now: 0497 656 471</a>
+    </div>
+
+    <div class="fan-grid">
+
+        <!-- FAN 1 -->
+        <div class="fan-card">
+            <img src="{% static 'img/fan1.jpeg' %}" class="fan-img" alt="Ceiling Fan Standard">
+
+            <div class="fan-price">From $380 Supplied & Installed</div>
+            <div class="fan-heading">Standard Ceiling Fan</div>
+
+            <table class="fan-table">
+                <tr><td class="label">Design Range</td><td class="value">Airflow</td></tr>
+                <tr><td class="label">Product Brand</td><td class="value">Clipsal</td></tr>
+                <tr><td class="label">Product Type</td><td class="value">Fan</td></tr>
+                <tr><td class="label">Product Destination</td><td class="value">Ceiling Fan</td></tr>
+                <tr><td class="label">Device Application</td><td class="value">Residential, Commercial</td></tr>
+                <tr><td class="label">Warranty</td><td class="value">3 Years</td></tr>
+                <tr><td class="label">Provided Equipment</td><td class="value">Fan 350 mm – 1300 mm</td></tr>
+                <tr><td class="label">Rated Voltage</td><td class="value">240 V AC 50 Hz</td></tr>
+                <tr><td class="label">Power Consumption</td><td class="value">75 W</td></tr>
+                <tr><td class="label">EU RoHS Directive</td><td class="value">Under investigation</td></tr>
+                <tr><td class="label">Material</td><td class="value">ABS (Acrylonitrile Butadiene-Styrene)</td></tr>
+            </table>
+        </div>
+
+        <!-- FAN 2 -->
+        <div class="fan-card">
+            <img src="{% static 'img/fan2.jpeg' %}" class="fan-img" alt="Ceiling Fan With LED">
+
+            <div class="fan-price">From $460 Supplied and Installed</div>
+            <div class="fan-heading">Ceiling Fan with 18W LED Cool White</div>
+
+            <table class="fan-table">
+                <tr><td class="label">Design Range</td><td class="value">Airflow</td></tr>
+                <tr><td class="label">Product Brand</td><td class="value">Clipsal</td></tr>
+                <tr><td class="label">Product Type</td><td class="value">Fan</td></tr>
+                <tr><td class="label">Product Destination</td><td class="value">Ceiling Fan</td></tr>
+                <tr><td class="label">Device Application</td><td class="value">Residential, Commercial</td></tr>
+                <tr><td class="label">Warranty</td><td class="value">3 Years</td></tr>
+                <tr><td class="label">Provided Equipment</td><td class="value">Fan 350 mm – 1300 mm</td></tr>
+                <tr><td class="label">Rated Voltage</td><td class="value">240 V AC 50 Hz</td></tr>
+                <tr><td class="label">Power Consumption</td><td class="value">75 W</td></tr>
+                <tr><td class="label">EU RoHS Directive</td><td class="value">Under investigation</td></tr>
+                <tr><td class="label">Material</td><td class="value">ABS (Acrylonitrile Butadiene-Styrene)</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="special-note">
+        All prices include basic installation. Site conditions apply. Contact us for a custom quote.
+    </div>
+</div>
+
+{% endblock %}

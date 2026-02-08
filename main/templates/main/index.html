@@ -1,0 +1,870 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Mayday Appliance Service – Expert Appliance Repairs & Installations{% endblock %}
+{% block meta_description %}Fast, reliable, and affordable appliance repair and installation services across Melbourne. Licensed technicians servicing washing machines, dishwashers, ovens, dryers, rangehoods, and air conditioning units with professional expertise.{% endblock %}
+{% block meta_keywords %}Mayday Appliance Service, appliance repair Melbourne, washing machine repair, dishwasher repair, oven repair, dryer repair, rangehood installation, AC installation, appliance installation, professional appliance technicians{% endblock %}
+
+{% block content %}
+
+<!-- Carousel Start -->
+<div class="header-carousel owl-carousel"  id="quote">
+
+    <!-- Slide 1 -->
+    <div class="header-carousel-item">
+        <img src="{% static 'img/banner1.jpg' %}" alt="Appliance Services">
+
+        <div class="carousel-caption">
+            <div class="container">
+                <div class="row align-items-center g-5">
+
+                    <!-- Text Section -->
+                    <div class="col-xl-7 text-center text-xl-start">
+                        <h1 class="display-4 text-white fw-bold mb-4">Fast & Reliable Appliance Repairs</h1>
+                        <p class="text-white fs-5 mb-4" style="text-align: justify;">
+                            Mayday Appliance Service offers expert repair and installation for all major home appliances including washing machines, dishwashers, ovens, dryers, rangehoods, and air conditioning units across Melbourne.
+                        </p>
+                    </div>
+
+                    <!-- Form Section -->
+                    <div class="col-xl-5">
+                        <div class="ticket-form p-4 p-md-5">
+                            <h2 class="text-dark text-uppercase mb-4">Request a Service</h2>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-success">{{ message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                                <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+                                <input type="email" name="email" class="form-control mb-3" placeholder="Your Email" required>
+                                <input type="tel" name="phone" class="form-control mb-3" placeholder="Phone" required>
+                                <select name="service" class="form-select mb-3" required>
+                                    <option value="" disabled selected>Select Service</option>
+                                    <option value="Washing Machine Repair">Washing Machine</option>
+                                    <option value="Dishwasher Repair">Dishwasher</option>
+                                    <option value="Oven & Cooker Repair">Oven & Cooker</option>
+                                    <option value="Rangehood Installation">Rangehood</option>
+                                    <option value="Dryer Repair">Dryer</option>
+                                    <option value="Air Conditioning">Air Conditioning</option>
+                                </select>
+                                <textarea name="message" class="form-control mb-3" rows="3" placeholder="Message" required></textarea>
+                                <button type="submit" name="carousel_submit" class="btn btn-orange">Request Service</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="header-carousel-item">
+        <img src="{% static 'img/ban.jpg' %}" alt="Appliance Installation">
+
+        <div class="carousel-caption">
+            <div class="container">
+                <div class="row align-items-center g-5">
+
+                    <!-- Text Section -->
+                    <div class="col-xl-7 text-center text-xl-start">
+                        <h1 class="display-4 text-white fw-bold mb-4">Professional Appliance Installation & Service</h1>
+                        <p class="text-white fs-5 mb-4" style="text-align: justify;">
+                            Our licensed technicians deliver fast, reliable, and affordable appliance repairs and installations. We ensure every appliance in your home operates efficiently and safely.
+                        </p>
+                    </div>
+
+                    <!-- Form Section -->
+                    <div class="col-xl-5">
+                        <div class="ticket-form p-4 p-md-5">
+                            <h2 class="text-dark text-uppercase mb-4">Book A Repair</h2>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-success">{{ message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                                <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+                                <input type="email" name="email" class="form-control mb-3" placeholder="Your Email" required>
+                                <input type="tel" name="phone" class="form-control mb-3" placeholder="Phone" required>
+                                <select name="service" class="form-select mb-3" required>
+                                    <!--<option value="" disabled selected>Select Service</option>-->
+                                    <option value="Washing Machine Repair">Washing Machine</option>
+                                    <option value="Dishwasher Repair">Dishwasher</option>
+                                    <option value="Oven & Cooker Repair">Oven & Cooker</option>
+                                    <option value="Rangehood Installation">Rangehood</option>
+                                    <option value="Dryer Repair">Dryer</option>
+                                    <option value="Air Conditioning">Air Conditioning</option>
+                                </select>
+                                <textarea name="message" class="form-control mb-3" rows="3" placeholder="Message" required></textarea>
+                                <button type="submit" name="carousel_submit" class="btn btn-orange">Request Service</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Carousel End -->
+
+<section class="ma-cta-section">
+  <!-- Hero Box -->
+  <!--<div class="ma-hero-box">-->
+  <!--  <div class="ma-container">-->
+  <!--    <h2 class="text-black">Reliable Appliance Repairs in Brisbane</h2>-->
+  <!--    <p class="ma-promo">-->
+  <!--      BOOK A REPAIR & OUR SERVICES-->
+  <!--      <span class="text-info">QUALITY SERVICE YOU CAN TRUST</span>-->
+  <!--    </p>-->
+  <!--    <a href="#services" class="ma-btn-learn">OUR SERVICES</a>-->
+  <!--  </div>-->
+  <!--</div>-->
+
+  <!-- Grid Cards -->
+  <div class="ma-grid">
+    <div class="ma-card ma-blue">
+      <p>Mayday Appliance Repairs – Guaranteed Work Always</p>
+      <div class="ma-badge">
+        <span class="top">QUALITY</span>
+        <span class="bottom">SERVICE</span>
+      </div>
+    </div>
+
+    <div class="ma-card ma-red">
+      <p>Request a Repair Quote</p>
+      <a href="#quote" class="ma-outline-btn">GET A QUOTE</a>
+    </div>
+
+    <div class="ma-card ma-yellow">
+      <p class="dark-text">Book a Repair Online</p>
+      <a href="#contact" class="ma-outline-btn dark-border">MAKE A BOOKING</a>
+    </div>
+
+    <div class="ma-card ma-dark">
+      <p>Call Us Today for Fast Service</p>
+      <div class="ma-call-area">
+        <span class="ma-call-label">CALL US TODAY</span>
+        <a href="tel:+61 404 000 049" class="ma-phone">+61 404 000 049</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- About Start -->
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            
+            <!-- Text Content -->
+            <div class="col-lg-7">
+                <header class="mb-3">
+                    <h1 class="section-title">About Mayday Appliance Service</h1>
+                </header>
+                
+                <p class="about-text">
+                    Mayday Appliance Service is Melbourne's trusted appliance repair and installation company. We specialize in washing machine, dishwasher, oven, dryer, rangehood, and air conditioning maintenance. Our certified technicians deliver fast, reliable, and affordable solutions, ensuring your appliances run efficiently and safely.
+                </p>
+
+                <p class="about-text">
+                    We pride ourselves on exceptional customer service, transparent pricing, and expert knowledge of all major appliance brands. From emergency repairs to routine maintenance and professional installations, we make sure every job is completed to the highest standards.
+                </p>
+
+                <ul class="features-list">
+                    <li>Expert appliance repairs and professional installations.</li>
+                    <li>Comprehensive maintenance for long-lasting performance.</li>
+                    <li>Fast response times and service across Melbourne.</li>
+                    <li>Certified technicians with years of hands-on experience.</li>
+                    <li>Service for all major appliance brands.</li>
+                </ul>
+
+                <a href="#contact" class="btn-primary">Contact Us</a>
+            </div>
+
+            <!-- Image Content -->
+            <div class="col-lg-5 position-relative">
+                <!-- Decorative Lines -->
+                <div class="decorative-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="main-img-wrapper position-relative">
+                    <img src="{% static 'img/about-mayday.jpg' %}" alt="Mayday Appliance Service" class="main-img">
+                    <div class="image-overlay"></div>
+
+                    <!-- Experience Box inside Image -->
+                    <div class="experience-box">
+                        <div class="experience-content">
+                            <h2>15+</h2>
+                            <p>Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- About End -->
+
+<section class="ma-reasons-section">
+  <div class="ma-reasons-container">
+
+    <h2 class="ma-reasons-title">Reasons to Call Us</h2>
+
+    <div class="ma-reasons-grid">
+      <div class="ma-reason-card">
+        <i class="fas fa-bolt ma-icon"></i>
+        <h4>Fast Service</h4>
+        <p>Rapid response to get your appliance working again.</p>
+      </div>
+
+      <div class="ma-reason-card">
+        <i class="fas fa-tools ma-icon"></i>
+        <h4>Expert Technicians</h4>
+        <p>Certified professionals with years of experience.</p>
+      </div>
+
+      <div class="ma-reason-card">
+        <i class="fas fa-money-bill-wave ma-icon"></i>
+        <h4>Transparent Pricing</h4>
+        <p>No hidden fees — clear quote before work begins.</p>
+      </div>
+
+      <div class="ma-reason-card">
+        <i class="fas fa-stopwatch ma-icon"></i>
+        <h4>Fast Turnaround</h4>
+        <p>Efficient repairs without compromising quality.</p>
+      </div>
+
+      <div class="ma-reason-card">
+        <i class="fas fa-home ma-icon"></i>
+        <h4>On-site Service</h4>
+        <p>We repair your appliance right at your home.</p>
+      </div>
+
+      <div class="ma-reason-card">
+        <i class="fas fa-shield-alt ma-icon"></i>
+        <h4>Guaranteed Work</h4>
+        <p>All repairs backed by workmanship guarantee.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Why Choose Us Section Start -->
+<section class="why-choose-us py-5">
+  <div class="container py-5">
+    <div class="row g-5 align-items-center">
+
+      <!-- Text Content -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <h4 class="section-subtitle">Why Choose Us</h4>
+        <h2 class="section-title">Trusted Appliance Repair Experts</h2>
+        <p class="section-desc">
+          At Mayday Appliance Service, we deliver prompt, reliable, and professional appliance repairs across Melbourne. Whether it's a washing machine, dishwasher, oven, dryer, rangehood, or air conditioner — our experienced technicians handle it with care and precision.
+        </p>
+        <ul class="choose-list list-unstyled">
+          <li><i class="fa fa-check"></i> Experienced & Certified Technicians</li>
+          <li><i class="fa fa-check"></i> Prompt and Reliable Same‑Day Service</li>
+          <li><i class="fa fa-check"></i> Transparent Pricing with No Hidden Costs</li>
+          <li><i class="fa fa-check"></i> Servicing All Major Appliance Brands</li>
+          <li><i class="fa fa-check"></i> Friendly Customer Support & Quick Response</li>
+        </ul>
+      </div>
+
+      <!-- Image -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <img src="{% static 'img/why-choose-us.jpg' %}" class="why-image" alt="Appliance Repair Services in Melbourne">
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Why Choose Us Section End -->
+
+
+<!-- Services Start -->
+<section id="services" class="services-section">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mx-auto mb-5" style="max-width: 800px;">
+            <h4 class="section-subtitle">Our Services</h4>
+            <h1 class="section-title">Appliance Repair & Installation</h1>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="row g-4">
+            <!-- Washing Machine -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="{% static 'img/washing.jpg' %}" alt="Washing Machine">
+                        <div class="overlay-text">Washing Machine</div>
+                        <div class="decorative-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dishwasher -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="{% static 'img/dish_washer.jpg' %}" alt="Dishwasher">
+                        <div class="overlay-text">Dishwasher</div>
+                        <div class="decorative-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oven & Cooker -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="{% static 'img/oven.jpg' %}" alt="Oven & Cooker">
+                        <div class="overlay-text">Oven & Cooker</div>
+                        <div class="decorative-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rangehood -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="{% static 'img/rangehood.jpg' %}" alt="Rangehood">
+                        <div class="overlay-text">Rangehood</div>
+                        <div class="decorative-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dryer -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="{% static 'img/dryer.jpg' %}" alt="Dryer">
+                        <div class="overlay-text">Dryer</div>
+                        <div class="decorative-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Air Conditioning -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="{% static 'img/air_conditioning.jpg' %}" alt="Air Conditioning">
+                        <div class="overlay-text">Air Conditioning</div>
+                        <div class="decorative-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Services End -->
+
+<!-- Projects Start -->
+<section id="projects" class="projects-section">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="section-header mx-auto mb-5 wow fadeInUp" data-wow-delay="0.2s">
+      <h4 class="section-subtitle">Our Projects</h4>
+      <h1 class="section-title">Completed Appliance Repairs & Installations</h1>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <img src="{% static 'img/airconditioning.jpg' %}" alt="Air Conditioning Installation" />
+          <div class="project-info"><h5>Air Conditioning Installation</h5></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <img src="{% static 'img/washingmach.jpg' %}" alt="Washing Machine Repair" />
+          <div class="project-info"><h5>Washing Machine Repair</h5></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <img src="{% static 'img/oven-repair.jpg' %}" alt="Oven Repair" />
+          <div class="project-info"><h5>Oven Repair</h5></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <img src="{% static 'img/dishwasher.jpg' %}" alt="Dishwasher Service" />
+          <div class="project-info"><h5>Dishwasher Service</h5></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <img src="{% static 'img/dryer.jpg' %}" alt="Dryer Repair" />
+          <div class="project-info"><h5>Dryer Repair</h5></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <img src="{% static 'img/cooktop.jpg' %}" alt="Cooktop Repair" />
+          <div class="project-info"><h5>Cooktop Repair</h5></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Projects End -->
+
+
+<!-- Our Mission Section Start -->
+<section class="our-mission py-5 position-relative">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-5 position-relative">
+            <h2 class="mission-title">Our Mission: Your Appliances, Our Priority</h2>
+            <p class="mission-subtitle">
+                Delivering fast, reliable, and expert appliance repairs with a commitment to customer satisfaction.
+            </p>
+
+            <!-- Animated Lines Behind Title -->
+            <div class="animated-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Mission Blocks -->
+        <div class="row g-4">
+
+            <!-- Reliability -->
+            <div class="col-md-4 text-center">
+                <div class="mission-block h-100">
+                    <div class="mission-icon mb-3">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </div>
+                    <h4 class="mission-heading">Reliable Solutions Every Time</h4>
+                    <p class="mission-text">
+                        We provide dependable repair and installation services for all major appliances — ensuring peace of mind and long-lasting results.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Experienced Technicians -->
+            <div class="col-md-4 text-center">
+                <div class="mission-block h-100">
+                    <div class="mission-icon mb-3">
+                        <i class="fas fa-user-cog fa-3x"></i>
+                    </div>
+                    <h4 class="mission-heading">Experienced & Skilled Technicians</h4>
+                    <p class="mission-text">
+                        Our team of certified technicians brings years of hands-on experience to every job, delivering expert care and workmanship.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Customer Satisfaction -->
+            <div class="col-md-4 text-center">
+                <div class="mission-block h-100">
+                    <div class="mission-icon mb-3">
+                        <i class="fas fa-smile-beam fa-3x"></i>
+                    </div>
+                    <h4 class="mission-heading">100% Customer Satisfaction</h4>
+                    <p class="mission-text">
+                        We are committed to prompt, friendly service and stand behind our work with integrity, honesty, and clear communication.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Our Mission Section End -->
+
+
+
+<!-- Testimonials Section Start -->
+<section id="testimonials" class="testimonials-section py-5">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header text-center mx-auto mb-5" style="max-width: 800px;">
+      <h4 class="section-subtitle">Testimonials</h4>
+      <h1 class="section-title">What Our Clients Say</h1>
+      <!-- Decorative Animated Lines -->
+      <div class="header-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="row g-4">
+      <!-- Testimonial 1 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            "Mayday Appliance was amazing! They quickly fixed my washing machine, and the technician was professional and friendly."
+          </p>
+          <h5>– Nat</h5>
+          <span>Brighton East, VIC</span>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            "Ali arrived on time and fixed my dishwasher efficiently. Excellent communication and professional service!"
+          </p>
+          <h5>– Alison</h5>
+          <span>Oak Park, VIC</span>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            "Extremely professional and courteous. My appliance was repaired perfectly and quickly. Highly recommend!"
+          </p>
+          <h5>– Karen R</h5>
+          <span>Mernda, VIC</span>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            "Fast, reliable, and affordable. Mayday Appliance made the whole process smooth and stress-free!"
+          </p>
+          <h5>– Jamie</h5>
+          <span>Keilor Downs, VIC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Testimonials Section End -->
+
+<!-- Specialised Brands Section Start -->
+<section class="brands-section py-5">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Brands We Specialise In</h2>
+      <p class="section-desc">
+        We repair & service a wide variety of appliance brands, ensuring quality and reliability every time.
+      </p>
+    </div>
+
+    <!-- Brands List -->
+    <ul class="brands-list">
+      <li>Samsung</li>
+      <li>Asko</li>
+      <li>Bosch</li>
+      <li>Miele</li>
+      <li>Electrolux</li>
+      <li>Euro Appliance</li>
+      <li>Fisher & Paykel</li>
+      <li>Haier</li>
+      <li>Hoover</li>
+      <li>LG</li>
+      <li>Whirlpool</li>
+      <li>Dishlex</li>
+      <li>Brandt</li>
+      <li>Frigidaire</li>
+      <li>Kenmore</li>
+      <li>Bendix</li>
+      <li>Dyson</li>
+      <li>Westinghouse</li>
+      <li>Simpson</li>
+      <li>Euromaid</li>
+      <li>Hotpoint Appliance</li>
+      <li>Ariston</li>
+      <li>Magic Chef</li>
+      <li>Smeg</li>
+      <li>Roper</li>
+      <li>Zanussi</li>
+      <li>Krosley</li>
+      <li>Indesit</li>
+    </ul>
+
+    <!-- Decorative Floating Circles -->
+    <span class="circle circle1" data-icon="🧊"></span>  <!-- Fridge -->
+    <span class="circle circle2" data-icon="🧺"></span>  <!-- Washing Machine -->
+    <span class="circle circle3" data-icon="🍳"></span>  <!-- Oven -->
+    <span class="circle circle4" data-icon="❄️"></span>  <!-- Cooling -->
+    <span class="circle circle5" data-icon="🍽️"></span>  <!-- Dishwasher -->
+
+  </div>
+</section>
+<!-- Specialised Brands Section End -->
+
+
+<!--<section id="blog" class="blog-section py-5">-->
+<!--    <div class="container">-->
+<!--        <div class="mb-5 text-center">-->
+<!--            <h6 class="text-uppercase fw-bold ls-2 text-black mb-2">Industry Insights</h6>-->
+<!--            <h2 class="display-5 fw-bold text-orange">Appliance Care & Maintenance</h2>-->
+<!--            <div class="mx-auto mt-3 bg-orange" style="height: 3px; width: 60px;"></div>-->
+<!--        </div>-->
+
+<!--        <div class="blog-carousel">-->
+<!--            <div class="blog-card">-->
+<!--                <div class="blog-category">Maintenance</div>-->
+<!--                <div class="blog-icon-box">-->
+<!--                    <i class="fas fa-snowflake text-orange"></i>-->
+<!--                </div>-->
+<!--                <div class="blog-body">-->
+<!--                    <h5 class="blog-title text-navy">Proactive Fridge Care: Avoiding Costly Repairs</h5>-->
+<!--                    <p class="blog-excerpt text-muted">Learn the essential monthly checks to keep your refrigerator running at peak efficiency and prevent sudden breakdowns.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="blog-card">-->
+<!--                <div class="blog-category">Efficiency</div>-->
+<!--                <div class="blog-icon-box">-->
+<!--                    <i class="fas fa-bolt text-orange"></i>-->
+<!--                </div>-->
+<!--                <div class="blog-body">-->
+<!--                    <h5 class="blog-title text-navy">Energy Efficiency in Modern Appliances</h5>-->
+<!--                    <p class="blog-excerpt text-muted">Discover how upgrading your home appliances can significantly reduce your quarterly energy bills and carbon footprint.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="blog-card">-->
+<!--                <div class="blog-category">Washing</div>-->
+<!--                <div class="blog-icon-box">-->
+<!--                    <i class="fas fa-tint text-orange"></i>-->
+<!--                </div>-->
+<!--                <div class="blog-body">-->
+<!--                    <h5 class="blog-title text-navy">Solving Common Washing Machine Drainage Issues</h5>-->
+<!--                    <p class="blog-excerpt text-muted">A step-by-step guide to troubleshooting water drainage problems before calling a technician.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="blog-card">-->
+<!--                <div class="blog-category">Kitchen</div>-->
+<!--                <div class="blog-icon-box">-->
+<!--                    <i class="fas fa-utensils text-orange"></i>-->
+<!--                </div>-->
+<!--                <div class="blog-body">-->
+<!--                    <h5 class="blog-title text-navy">Oven Calibration: Why Temperature Accuracy Matters</h5>-->
+<!--                    <p class="blog-excerpt text-muted">Ensure your culinary results are consistent by understanding how to check and calibrate your oven's thermostat.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<!-- Banner / Contact CTA Start -->
+<div class="container-fluid banner py-5 wow zoomIn" data-wow-delay="0.2s">
+    <div class="banner-design-1"></div>
+    <div class="banner-design-2"></div>
+
+    <div class="container py-5 text-center">
+        <h4 class="text-white mb-2">Need Fast Appliance Repair?</h4>
+
+        <h1 class="display-4 text-white mb-4">
+            Reliable Same-Day Appliance Repair for Your Home
+        </h1>
+
+        <a class="btn btn-primary py-3 px-5 me-2" href="#contact">
+            Book a Technician
+        </a>
+
+        <a class="btn btn-light py-3 px-5 ms-2" href="#services">
+            View Appliance Services
+        </a>
+    </div>
+</div>
+<!-- Banner End -->
+
+
+<section id="faq-premium">
+    <div class="faq-wrapper">
+        <div class="faq-header">
+            <h4>Expert Support</h4>
+            <h1>Your Questions <span>Answered</span></h1>
+        </div>
+
+        <div class="faq-card">
+            <input type="checkbox" id="faq1">
+            <label class="faq-question" for="faq1">
+                What types of appliances does Mayday Appliance repair?
+                <span class="faq-icon">+</span>
+            </label>
+            <div class="faq-answer">
+                <p>We specialize in a wide range of home appliances across Melbourne, including Washing Machines, Dishwashers, Cookers, Ovens, Rangehoods, Clothes Dryers, and Air Conditioning systems (Split Systems).</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <input type="checkbox" id="faq2">
+            <label class="faq-question" for="faq2">
+                Which brands do your technicians service?
+                <span class="faq-icon">+</span>
+            </label>
+            <div class="faq-answer">
+                <p>Our expert technicians service a variety of leading brands, including Samsung, Bosch, LG, Miele, Electrolux, Fisher & Paykel, Haier, Whirlpool, Asko, Euro Appliance, and more.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <input type="checkbox" id="faq3">
+            <label class="faq-question" for="faq3">
+                Are your air conditioning services licensed?
+                <span class="faq-icon">+</span>
+            </label>
+            <div class="faq-answer">
+                <p>Yes, we provide licensed air conditioning installation and maintenance (RTA Number: AU55075). This ensures your system is installed according to required regulations.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <input type="checkbox" id="faq4">
+            <label class="faq-question" for="faq4">
+                Where do you provide your repair services?
+                <span class="faq-icon">+</span>
+            </label>
+            <div class="faq-answer">
+                <p>Mayday Appliance is a leading provider in Melbourne, servicing the VIC area. We complete repairs at your home, workplace, or on-site for your convenience.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <input type="checkbox" id="faq5">
+            <label class="faq-question" for="faq5">
+                Can you provide replacement parts for my appliances?
+                <span class="faq-icon">+</span>
+            </label>
+            <div class="faq-answer">
+                <p>Absolutely. We can replace or repair specific parts for your home appliances using top-quality components to ensure your machine works at its very best.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <input type="checkbox" id="faq6">
+            <label class="faq-question" for="faq6">
+                How much experience does the Mayday Appliance team have?
+                <span class="faq-icon">+</span>
+            </label>
+            <div class="faq-answer">
+                <p>We bring over 15 years of industry experience to every job. Our professional staff completes over 500+ projects annually with a focus on customer satisfaction.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Contact Form Start -->
+<section class="cta-contact py-5" id="contact">
+    <div class="container py-5">
+        <h2 class="cta-title text-center mb-5">Let’s Get In Touch</h2>
+
+        <div class="form-wrapper position-relative mx-auto">
+
+            <!-- Curved Airflow Lines -->
+            <svg class="airflow-svg" viewBox="0 0 1200 400" preserveAspectRatio="none">
+                <path class="airflow-path path1" d="M0,300 C300,200 900,400 1200,250" />
+                <path class="airflow-path path2" d="M0,200 C300,100 900,300 1200,180" />
+                <path class="airflow-path path3" d="M0,100 C400,0 800,200 1200,80" />
+            </svg>
+
+            <!-- Floating Appliance Icons -->
+            <div class="floating-icons">
+                <div class="icon icon-fridge">🧊</div>
+                <div class="icon icon-washer">🧺</div>
+                <div class="icon icon-oven">🍳</div>
+                <div class="icon icon-dishwasher">🍽️</div>
+            </div>
+
+            <!-- Floating Circles -->
+            <div class="floating-circles">
+                <span class="circle circle1"></span>
+                <span class="circle circle2"></span>
+                <span class="circle circle3"></span>
+                <span class="circle circle4"></span>
+            </div>
+
+            <!-- Tiny Spark Particles -->
+            <div class="particles">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+
+            <!-- Contact Form -->
+            <form method="POST" action="{% url 'index' %}" class="cta-form p-5 rounded-4 shadow-lg">
+                {% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                <div class="mb-3">{{ form.name }}</div>
+                <div class="mb-3">{{ form.email }}</div>
+                <div class="mb-3">{{ form.phone }}</div>
+                <div class="mb-3">{{ form.message }}</div>
+                <button type="submit" name="contact_submit" class="btn-submit w-100">Send Message</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+<!-- CTA Contact Form End -->
+
+
+
+{% endblock %}
