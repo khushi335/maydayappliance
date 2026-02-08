@@ -112,7 +112,7 @@ Mayday Appliance Repairs
                         subject=f"New Service Inquiry from {service_inquiry.name}",
                         message=admin_message,
                         from_email=settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=[settings.ADMIN_EMAIL],
+                        recipient_list=settings.ADMIN_EMAIL,
                         fail_silently=False,
                     )
 
@@ -135,13 +135,16 @@ Mayday Appliance Repairs
 
     return render(request, "main/index.html", {'form': contact_form})
 
+
 # About Page
 def about(request):
     return render(request, 'main/about.html')
 
+
 # Services Page
 def service(request):
     return render(request, 'main/service.html')
+
 
 # Contact / Schedule Page
 def contact(request):
@@ -189,7 +192,7 @@ Mayday Appliance Repairs
                     subject=f"New Service Booking – {contact.subject}",
                     message=admin_message,
                     from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[settings.ADMIN_EMAIL],
+                    recipient_list=settings.ADMIN_EMAIL,
                     fail_silently=False,
                 )
 

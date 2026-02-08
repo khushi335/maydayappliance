@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Inquiry, Contact, ServiceInquiry
+from .models import Inquiry, Contact, ServiceInquiry , ScheduleContact
 
 @admin.register(Inquiry)
 class InquiryAdmin(admin.ModelAdmin):
@@ -30,3 +30,9 @@ class ServiceInquiryAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone', 'service', 'created_at')
     search_fields = ('name', 'email', 'phone', 'service')
     list_filter = ('service', 'created_at')
+    
+@admin.register(ScheduleContact)
+class ScheduleContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'subject', 'created_at')
+    list_filter = ('created_at',)
+    search_fields = ('name', 'email', 'phone', 'subject', 'message')
