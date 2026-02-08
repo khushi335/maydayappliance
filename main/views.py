@@ -44,7 +44,7 @@ Mayday Appliance Repairs
                         subject=f"New Inquiry from {inquiry.name}",
                         message=admin_message,
                         from_email=settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=[settings.ADMIN_EMAIL],
+                        recipient_list=settings.ADMIN_EMAIL,
                         fail_silently=False,
                     )
 
@@ -157,6 +157,7 @@ New Schedule Request:
 
 Name: {contact.name}
 Email: {contact.email}
+Phone: {contact.phone}
 Service: {contact.subject}
 
 Message:
