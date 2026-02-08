@@ -181,4 +181,4 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # --- Email addresses ---
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
-ADMIN_EMAIL = config('ADMIN_EMAIL').split(',')
+ADMIN_EMAIL = config('ADMIN_EMAIL')

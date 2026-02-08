@@ -1,20 +1,21 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail
 from django.conf import settings
 from .forms import InquiryForm, ContactForm, ScheduleContactForm
 from .models import Inquiry, ServiceInquiry
 
+# Home Page
 def index(request):
-    # Handle Contact Form (CTA Section)
     contact_form = InquiryForm(request.POST or None)
-    
+
     if request.method == "POST":
-        # Check which form was submitted
+        # Contact Form (CTA Section)
         if 'contact_submit' in request.POST:
             if contact_form.is_valid():
                 inquiry = contact_form.save()
-                # Email content for contact form
+
+                # Email content for admin
                 admin_message = f"""
 New Inquiry Received:
 
@@ -24,17 +25,18 @@ Phone: {inquiry.phone}
 Message:
 {inquiry.message}
 """
+                # Email content for user
                 user_message = f"""
 Hi {inquiry.name},
 
-Thank you for reaching out! We have received your message and will get back to you soon.
+Thank you for reaching out to Mayday Appliance Repairs! We have received your message and will get back to you soon.
 
 Your Message:
 {inquiry.message}
 ------------------------------------
 
 Best regards,
-R2 Electrical & Air Conditioning
+Mayday Appliance Repairs
 """
                 try:
                     # Send email to admin
@@ -42,13 +44,13 @@ R2 Electrical & Air Conditioning
                         subject=f"New Inquiry from {inquiry.name}",
                         message=admin_message,
                         from_email=settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=settings.ADMIN_EMAIL,
+                        recipient_list=[settings.ADMIN_EMAIL],
                         fail_silently=False,
                     )
 
                     # Send confirmation email to user
                     send_mail(
-                        subject="Thank you for contacting Electra!",
+                        subject="Thank you for contacting Mayday Appliance Repairs!",
                         message=user_message,
                         from_email=settings.DEFAULT_FROM_EMAIL,
                         recipient_list=[inquiry.email],
@@ -62,8 +64,8 @@ R2 Electrical & Air Conditioning
                     messages.error(request, "Message saved, but failed to send email.")
             else:
                 messages.error(request, "Please correct the errors in the contact form.")
-        
-        # Handle Carousel Form (Service Inquiry)
+
+        # Carousel / Service Inquiry Form
         elif 'carousel_submit' in request.POST:
             name = request.POST.get('name')
             email = request.POST.get('email')
@@ -80,7 +82,7 @@ R2 Electrical & Air Conditioning
                     message=message_text
                 )
 
-                # Email content for carousel form
+                # Email content for admin
                 admin_message = f"""
 New Service Inquiry:
 
@@ -91,35 +93,38 @@ Service: {service_inquiry.service}
 Message:
 {service_inquiry.message}
 """
+                # Email content for user
                 user_message = f"""
 Hi {service_inquiry.name},
 
-Thank you for requesting a service! We have received your request for '{service_inquiry.service}' and will contact you soon.
+Thank you for requesting a service with Mayday Appliance Repairs! We have received your request for '{service_inquiry.service}' and will contact you shortly.
 
 Your Message:
 {service_inquiry.message}
 ------------------------------------
 
 Best regards,
-R2 Electrical & Air Conditioning
+Mayday Appliance Repairs
 """
                 try:
-                    # Email to admin
+                    # Send email to admin
                     send_mail(
                         subject=f"New Service Inquiry from {service_inquiry.name}",
                         message=admin_message,
                         from_email=settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=settings.ADMIN_EMAIL,
+                        recipient_list=[settings.ADMIN_EMAIL],
                         fail_silently=False,
                     )
-                    # Confirmation email to user
+
+                    # Send confirmation email to user
                     send_mail(
-                        subject="Thank you for contacting Electra!",
+                        subject="We’ve received your service request!",
                         message=user_message,
                         from_email=settings.DEFAULT_FROM_EMAIL,
                         recipient_list=[service_inquiry.email],
                         fail_silently=False,
                     )
+
                     messages.success(request, "Your service request has been submitted successfully!")
                     return redirect('index')
                 except Exception as e:
@@ -138,7 +143,7 @@ def about(request):
 def service(request):
     return render(request, 'main/service.html')
 
-# Contact Page
+# Contact / Schedule Page
 def contact(request):
     if request.method == 'POST':
         form = ScheduleContactForm(request.POST)
@@ -148,11 +153,10 @@ def contact(request):
 
             # Email to admin
             admin_message = f"""
-New Schedule Request
+New Schedule Request:
 
 Name: {contact.name}
 Email: {contact.email}
-Phone: {contact.phone}
 Service: {contact.subject}
 
 Message:
@@ -184,7 +188,7 @@ Mayday Appliance Repairs
                     subject=f"New Service Booking – {contact.subject}",
                     message=admin_message,
                     from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=settings.ADMIN_EMAIL,
+                    recipient_list=[settings.ADMIN_EMAIL],
                     fail_silently=False,
                 )
 
