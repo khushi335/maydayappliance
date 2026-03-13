@@ -155,24 +155,26 @@ window.addEventListener("scroll", function () {
     }
 });
 
-// Dropdown click functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const servicesBtn = document.getElementById('services-btn');
-    const dropdownLi = servicesBtn.closest('.dropdown');
+// Appliances dropdown (mobile & tablet click)
+document.addEventListener("DOMContentLoaded", function () {
 
-    servicesBtn.addEventListener('click', function (e) {
+    const dropBtn = document.querySelector(".dropbtn");
+    const dropdown = document.querySelector(".dropdown");
+    const menuToggle = document.getElementById("menu-toggle");
+
+    dropBtn.addEventListener("click", function (e) {
+
+        // Only for mobile & tablet
         if (window.innerWidth <= 992) {
+
+            // Only allow dropdown if menu is open
+            if (!menuToggle.checked) return;
+
             e.preventDefault();
-            e.stopPropagation();
-            dropdownLi.classList.toggle('active');
+            dropdown.classList.toggle("active");
         }
     });
 
-    document.addEventListener('click', function (e) {
-        if (!dropdownLi.contains(e.target)) {
-            dropdownLi.classList.remove('active');
-        }
-    });
 });
 
 // Topbar & navbar spacing
