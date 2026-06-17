@@ -196,11 +196,29 @@
   <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="container">
-      <p>© 2017 Mayday Appliance Service. All Rights Reserved.</p>
+      <p>© 2026 Mayday Appliance Service. All Rights Reserved.</p>
       <p>Website by <a href="https://quantumcoresoftware.com/" target="_blank">Quantum Core Software</a></p>
     </div>
   </div>
 </footer>
+
+    <!-- Sidebar -->
+    <nav class="spatial-sidebar initial-hide" id="socialSidebar">
+        <a href="https://www.facebook.com/MaydayApplianceMelbourne/" target="_blank" class="spatial-item fb">
+            <i class="fab fa-facebook-f"></i>
+            <span class="spatial-text">Facebook</span>
+        </a>
+
+        <a href="https://wa.me/61404000049" target="_blank" class="spatial-item wa">
+            <i class="fab fa-whatsapp"></i>
+            <span class="spatial-text">Whatsapp</span>
+        </a>
+        
+        <a href="https://www.instagram.com/maydayappliance/" target="_blank" class="spatial-item in">
+            <i class="fab fa-instagram"></i>
+            <span class="spatial-text">Instagram</span>
+        </a>
+    </nav>
 <!-- Footer End -->
 
 <!--Start of Tawk.to Script-->
@@ -216,6 +234,18 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+<script>
+window.addEventListener('load', function () {
+    setTimeout(function () {
+        const socialSidebar = document.getElementById('socialSidebar');
+
+        if (socialSidebar) {
+            socialSidebar.classList.add('reveal');
+        }
+    }, 800);
+});
+</script>
 
 <!-- Schema -->
 <script type="application/ld+json">
